@@ -587,11 +587,13 @@ var shouldInvestigate = function( src )
 // shortcuts
 // --
 
-var assignAndResolve = function assignAndResolve( src )
+var resolveAndAssign = function resolveAndAssign( src )
 {
   var self = this;
 
+  if( src !== undefined )
   self.tree = src;
+
   self.tree = self.resolve( self.tree );
 
   return self.tree;
@@ -679,7 +681,7 @@ var Proto =
 
   // shortcuts
 
-  assignAndResolve : assignAndResolve,
+  resolveAndAssign : resolveAndAssign,
 
 
   // relationships
