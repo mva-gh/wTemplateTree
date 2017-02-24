@@ -171,7 +171,7 @@ var _resolveEntered = function _resolveEntered( src )
 
 //
 
-var _resolveString = function( src )
+function _resolveString( src )
 {
   var self = this;
   var r;
@@ -214,6 +214,10 @@ var _resolveString = function( src )
       result = result.source;
       if( _.regexpIs( r ) )
       r = r.source;
+
+      if( !_.strIs( result ) && self.onStrFrom )
+      result = self.onStrFrom( result );
+
       _.assert( _.strIs( result ) );
       _.assert( _.strIs( r ) );
       result += r;
@@ -544,11 +548,12 @@ var _leave = function _leave( node )
 var ErrorQuerying = function ErrorQuerying( o )
 {
   _.mapExtend( this,o );
-  //self.stack = _.stack();
+  //self.stack = _.diagnosticStack();
 }
 
 ErrorQuerying.prototype = Object.create( Error.prototype );
 ErrorQuerying.prototype.constructor = ErrorQuerying;
+ErrorQuerying.prototype.name = 'x';
 
 //
 
@@ -564,7 +569,7 @@ var _errorQuerying = function _errorQuerying( o )
 
 //
 
-var shouldInvestigate = function( src )
+function shouldInvestigate( src )
 {
   var self = this;
 
@@ -617,6 +622,8 @@ var Composes =
   postfixSymbol : '}}',
   downSymbol : '^',
   upSymbol : '/',
+
+  onStrFrom : null,
 
 }
 

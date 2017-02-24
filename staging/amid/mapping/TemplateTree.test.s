@@ -4,15 +4,29 @@
 
 if( typeof module !== 'undefined' )
 {
+
   try
   {
-    require( 'wTesting' );
+    require( '../../abase/xTesting/Testing.debug.s' );
   }
   catch( err )
   {
-    require( '../../amid/diagnostic/Testing.debug.s' );
+    require( 'wTesting' );
   }
+
+  var _ = wTools;
+
+  require( './TemplateTree.s' );
+
 }
+
+//
+
+var _ = wTools;
+var Parent = wTools.Testing;
+var sourceFilePath = typeof module !== 'undefined' ? __filename : document.scripts[ document.scripts.length-1 ].src;
+
+//
 
 var _ = wTools;
 var tree =
@@ -362,7 +376,8 @@ var Self =
 {
 
   name : 'TemplateTree',
-  verbose : 1,
+  sourceFilePath : sourceFilePath,
+  verbosity : 1,
 
   tests :
   {
@@ -374,11 +389,10 @@ var Self =
 
 };
 
-_global_.wTests = _global_.wTests === undefined ? {} : _global_.wTests;
-wTests[ Self.name ] = Self;
+//
 
-// debugger;
+Self = wTestSuite( Self );
 if( typeof module !== 'undefined' && !module.parent )
-_.Testing.test( Self );
+_.Testing.test( Self.name );
 
 } )( );
