@@ -24,7 +24,7 @@ if( typeof module !== 'undefined' )
 
 var _ = wTools;
 var Parent = wTools.Testing;
-var sourceFilePath = typeof module !== 'undefined' ? __filename : document.scripts[ document.scripts.length-1 ].src;
+var sourceFilePath = _.diagnosticLocation().full; // typeof module !== 'undefined' ? __filename : document.scripts[ document.scripts.length-1 ].src;
 
 //
 
@@ -49,7 +49,7 @@ var tree =
 // test
 // --
 
-var query = function query( test )
+function query( test )
 {
   var self = this;
   var template = new wTemplateTree({ tree : tree, prefixSymbol : '{', postfixSymbol : '}', upSymbol : '.' });
@@ -152,7 +152,7 @@ var query = function query( test )
 
 //
 
-var resolve = function resolve( test )
+function resolve( test )
 {
   var self = this;
   var template = new wTemplateTree({ tree : tree, prefixSymbol : '{', postfixSymbol : '}', upSymbol : '.' });
@@ -309,47 +309,47 @@ var resolve = function resolve( test )
   if( Config.debug )
   {
 
-    test.shouldThrowError( function()
+    test.shouldThrowErrorSync( function()
     {
       template.resolve( '{aa}' );
     });
 
-    test.shouldThrowError( function()
+    test.shouldThrowErrorSync( function()
     {
       template.resolve( 'aa{aa}aa' );
     });
 
-    test.shouldThrowError( function()
+    test.shouldThrowErrorSync( function()
     {
       template.resolve( '{error.0}' );
     });
 
-    test.shouldThrowError( function()
+    test.shouldThrowErrorSync( function()
     {
       template.resolve( '{error.1}' );
     });
 
-    test.shouldThrowError( function()
+    test.shouldThrowErrorSync( function()
     {
       template.resolve( '{error.2}' );
     });
 
-    test.shouldThrowError( function()
+    test.shouldThrowErrorSync( function()
     {
       template.resolve( '{error.3}' );
     });
 
-    test.shouldThrowError( function()
+    test.shouldThrowErrorSync( function()
     {
       template.resolve( [ '{error.3}' ] );
     });
 
-    test.shouldThrowError( function()
+    test.shouldThrowErrorSync( function()
     {
       template.resolve( { a : '{error.3}' } );
     });
 
-    test.shouldThrowError( function()
+    test.shouldThrowErrorSync( function()
     {
       template.resolve( /{error.3}/ );
     });

@@ -54,7 +54,7 @@ Self.nameShort = 'TemplateTree';
 // inter
 // --
 
-var init = function init( o )
+function init( o )
 {
   var self = this;
 
@@ -73,7 +73,7 @@ var init = function init( o )
 // resolve
 // --
 
-var resolve = function resolve( src )
+function resolve( src )
 {
   var self = this;
 
@@ -92,7 +92,7 @@ var resolve = function resolve( src )
 
 //
 
-var resolveTry = function resolveTry( src )
+function resolveTry( src )
 {
   var self = this;
 
@@ -108,7 +108,7 @@ var resolveTry = function resolveTry( src )
 
 //
 
-var _resolveEnter = function _resolveEnter( src,query )
+function _resolveEnter( src,query )
 {
   var self = this;
   var l = self.current.length;
@@ -145,7 +145,7 @@ var _resolveEnter = function _resolveEnter( src,query )
 
 //
 
-var _resolveEntered = function _resolveEntered( src )
+function _resolveEntered( src )
 {
   var self = this;
 
@@ -234,7 +234,7 @@ function _resolveString( src )
 
 //
 
-var _resolveRegexp = function _resolveRegexp( src )
+function _resolveRegexp( src )
 {
   var self = this;
 
@@ -256,7 +256,7 @@ var _resolveRegexp = function _resolveRegexp( src )
 
 //
 
-var _resolveMap = function _resolveMap( src )
+function _resolveMap( src )
 {
   var self = this;
   var result = Object.create( null );
@@ -275,7 +275,7 @@ var _resolveMap = function _resolveMap( src )
 
 //
 
-var _resolveArray = function _resolveArray( src )
+function _resolveArray( src )
 {
   var self = this;
   var result = new src.constructor( src.length );
@@ -296,7 +296,7 @@ var _resolveArray = function _resolveArray( src )
 // query
 // --
 
-var query = function query( query )
+function query( query )
 {
   var self = this;
 
@@ -314,7 +314,7 @@ var query = function query( query )
 
 //
 
-var queryTry = function queryTry( query )
+function queryTry( query )
 {
   var self = this;
 
@@ -329,7 +329,7 @@ var queryTry = function queryTry( query )
 
 //
 
-var _querySplit = function _querySplit( query )
+function _querySplit( query )
 {
   var self = this;
 
@@ -344,8 +344,8 @@ var _querySplit = function _querySplit( query )
     query = _.strSplit
     ({
       src : query,
-      splitter : [ self.upSymbol,self.downSymbol ],
-      preserveSplitter : 1,
+      delimeter : [ self.upSymbol,self.downSymbol ],
+      preserveDelimeters : 1,
     });
 
     if( query[ 0 ] !== self.downSymbol && query[ 0 ] !== self.upSymbol )
@@ -358,7 +358,7 @@ var _querySplit = function _querySplit( query )
 
 //
 
-var _queryEntering = function _queryEntering( query )
+function _queryEntering( query )
 {
   var self = this;
 
@@ -380,7 +380,7 @@ var _queryEntering = function _queryEntering( query )
 
 //
 
-var _queryEntered = function _queryEntered( query )
+function _queryEntered( query )
 {
   var self = this;
 
@@ -399,7 +399,7 @@ var _queryEntered = function _queryEntered( query )
 
 //
 
-var _queryAct = function _queryAct( here,query )
+function _queryAct( here,query )
 {
 
   _.assert( arguments.length === 2 );
@@ -475,7 +475,7 @@ var _queryAct = function _queryAct( here,query )
 // tracker
 // --
 
-var _entryGet = function _entryGet( entry )
+function _entryGet( entry )
 {
   var self = this;
 
@@ -486,7 +486,7 @@ var _entryGet = function _entryGet( entry )
 
 //
 
-var _enter = function _enter( node,query,path,throwing )
+function _enter( node,query,path,throwing )
 {
   var self = this;
 
@@ -528,7 +528,7 @@ var _enter = function _enter( node,query,path,throwing )
 
 //
 
-var _leave = function _leave( node )
+function _leave( node )
 {
   var self = this;
 
@@ -545,7 +545,7 @@ var _leave = function _leave( node )
 // etc
 // --
 
-var ErrorQuerying = function ErrorQuerying( o )
+function ErrorQuerying( o )
 {
   _.mapExtend( this,o );
   //self.stack = _.diagnosticStack();
@@ -557,7 +557,7 @@ ErrorQuerying.prototype.name = 'x';
 
 //
 
-var _errorQuerying = function _errorQuerying( o )
+function _errorQuerying( o )
 {
   var err = new ErrorQuerying( o );
   err = _.err( err );
@@ -592,7 +592,7 @@ function shouldInvestigate( src )
 // shortcuts
 // --
 
-var resolveAndAssign = function resolveAndAssign( src )
+function resolveAndAssign( src )
 {
   var self = this;
 
