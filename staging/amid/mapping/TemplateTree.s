@@ -27,7 +27,7 @@ if( typeof module !== 'undefined' )
   if( !wTools.FileProvider  )
   try
   {
-    require( '../include/amid/file/Files.ss' );
+    require( '../include/amid/file/FileMid.s' );
   }
   catch( err )
   {
@@ -185,6 +185,9 @@ function _resolveString( src )
   }
 
   var strips = _.strExtractStereoStrips.call( optionsForExtract,src );
+
+  if( src === 'installer' )
+  debugger;
 
   /* */
 
@@ -345,7 +348,7 @@ function _querySplit( query )
     ({
       src : query,
       delimeter : [ self.upSymbol,self.downSymbol ],
-      preserveDelimeters : 1,
+      preservingDelimeters : 1,
     });
 
     if( query[ 0 ] !== self.downSymbol && query[ 0 ] !== self.upSymbol )

@@ -5,17 +5,19 @@
 if( typeof module !== 'undefined' )
 {
 
+  // if( typeof wBase === 'undefined' )
   try
   {
-    require( '../../abase/xTesting/Testing.debug.s' );
+    require( '../../abase/wTools.s' );
   }
   catch( err )
   {
-    require( 'wTesting' );
+    require( 'wTools' );
   }
 
   var _ = wTools;
 
+  _.include( 'wTesting' );
   require( './TemplateTree.s' );
 
 }
