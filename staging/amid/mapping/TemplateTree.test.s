@@ -157,8 +157,13 @@ function query( test )
 function resolve( test )
 {
   var self = this;
-  var template = new wTemplateTree({ tree : tree, prefixSymbol : '{', postfixSymbol : '}', upSymbol : '.' });
-  debugger;
+  var template = new wTemplateTree
+  ({
+    tree : tree,
+    prefixSymbol : '{',
+    postfixSymbol : '}',
+    upSymbol : '.'
+  });
 
   /* */
 
@@ -212,9 +217,11 @@ function resolve( test )
 
   test.description = 'regexp cases';
 
+  debugger;
   var got = template.resolve( '{regexp.0}' );
   var expected = /b/;
   test.identical( got,expected );
+  debugger;
 
   var got = template.resolve( '{regexp.1}' );
   var expected = /ab/;

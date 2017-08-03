@@ -1,7 +1,7 @@
 {
   "name": "wtemplatetree",
   "version": "0.3.9",
-  "engine": "node >= 5.0.0",
+  "engine": "node >= 6.0.0",
   "description": "Module in JavaScript for resolving template structures.",
   "author": "Kostiantyn Wandalen <wtory.net@domainsbyproxy.com>",
   "contributors": [

@@ -706,7 +706,7 @@ var Proto =
 
 // define
 
-_.protoMake
+_.prototypeMake
 ({
   cls : Self,
   parent : Parent,
