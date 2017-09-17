@@ -2,7 +2,7 @@
   "name": "wtemplatetree",
   "version": "0.3.11",
   "engine": "node >= 6.0.0",
-  "description": "Module in JavaScript for resolving template structures.",
+  "description": "The module in JavaScript for resolving template structures.",
   "author": "Kostiantyn Wandalen <wtory.net@domainsbyproxy.com>",
   "contributors": [
     {
@@ -11,14 +11,14 @@
     }
   ],
   "license": "MIT",
-  "main": "staging/amid/mapping/TemplateTree.s",
+  "main": "staging/dwtools/amid/mapping/TemplateTree.s",
   "files": [
-    "staging/amid",
+    "staging/dwtools/amid",
     "production"
   ],
   "directories": {
     "doc": "doc",
-    "main": "staging/amid/mapping/TemplateTree.s"
+    "main": "staging/dwtools/amid/mapping/TemplateTree.s"
   },
   "scripts": {
     "test": "wtest staging",
@@ -36,7 +36,8 @@
     "wCopyable": ""
   },
   "devDependencies": {
-    "wTesting": ""
+    "wTesting": "",
+    "wtemplatetree": "."
   },
   "keywords": [
     "Template tree",

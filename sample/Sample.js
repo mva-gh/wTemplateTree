@@ -1,8 +1,6 @@
 
 if( typeof module !== 'undefined' )
-{
-  require( 'wTemplateTree' );
-}
+require( 'wTemplateTree' );
 
 var tree = { 'a' : 'a', b : [ 1,2,3 ], c : { c1 : [ 1,2,3 ], c2 : [ 11,22,33 ] }, d : '{{^^a}}' }
 var templateTree = new wTemplateTree();

@@ -8,7 +8,7 @@ if( typeof module !== 'undefined' )
   if( typeof wBase === 'undefined' )
   try
   {
-    require( '../include/BackTools.s' );
+    require( '../include/dwtools/BackTools.s' );
   }
   catch( err )
   {
@@ -17,7 +17,7 @@ if( typeof module !== 'undefined' )
   if( typeof wBase === 'undefined' )
   try
   {
-    require( '../include/wTools.s' );
+    require( '../include/dwtools/Base.s' );
   }
   catch( err )
   {
@@ -27,7 +27,7 @@ if( typeof module !== 'undefined' )
   if( !wTools.FileProvider  )
   try
   {
-    require( '../include/amid/file/FileMid.s' );
+    require( '../include/dwtools/amid/file/FileMid.s' );
   }
   catch( err )
   {
@@ -706,7 +706,7 @@ var Proto =
 
 // define
 
-_.prototypeMake
+_.classMake
 ({
   cls : Self,
   parent : Parent,
