@@ -13,7 +13,7 @@
   "license": "MIT",
   "main": "staging/dwtools/amid/mapping/TemplateTree.s",
   "files": [
-    "staging/dwtools/amid",
+    "staging/dwtools/amid/mapping/TemplateTree.s",
     "production"
   ],
   "directories": {
